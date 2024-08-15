@@ -40,3 +40,5 @@ if __name__ == "__main__":
     launcher = PythonTransformLauncher(runtime_config=Pdf2ParquetPythonTransformConfiguration())
     # Launch the ray actor(s) to process the input
     launcher.launch()
+
+    # input("Press Enter to terminate...")  # wait till we can gather metrics
