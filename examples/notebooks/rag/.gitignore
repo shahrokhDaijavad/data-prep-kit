@@ -4,3 +4,7 @@ storage/
 
 *.db
 *.db.lock
+
+## profiling outputs
+*.svg
+*.speed
