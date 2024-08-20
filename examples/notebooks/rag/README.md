@@ -47,8 +47,11 @@ Here is how to execute the code:
 ## go to project dir (assumes repo name is 'data-prep-kit')
 cd data-prep-kit/examples/notebooks/rag
 
-make jupyter
-## This will fireup jupyter in the correct env
+## activate the venv
+.  ./venv/bin/activate
+
+## run jupyter
+jupyter lab
 ```
 
 - Go to Jupyter URL printed on terminal

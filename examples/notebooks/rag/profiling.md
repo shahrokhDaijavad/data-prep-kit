@@ -8,6 +8,10 @@ Here is how I am profiling it
 
 ## Profiling Pure Python Code
 
+First activate venv
+
+`.   ./venv/bin/activate`
+
 First simple code with pdf2parquet transform : [test_pdf2pq_py.py](test_pdf2pq_py.py)
 
 Run it under profiler
