@@ -1,14 +1,20 @@
 # Setup a Local Python Dev Environment
 
-## Step-1: Anaconda Python environment
+We can use 
+
+- Option-A: Use Anaconda environment
+- Option-B: Use python virtual env
+
+Just follow one.  (A) is recommended!
+
+## Option A (Recommended): Anaconda Python environment
 
 You can install Anaconda by following the [guide here](https://www.anaconda.com/download/).
 
-## Step-2: Create a custom environment
 
 We will create an environment for this workshop with all the required libraries installed.
 
-**Make sure python version is 3.11**
+### A-1: Setup a conda env
 
 ```bash
 conda create -n data-prep-kit-1 -y python=3.11
@@ -22,41 +28,80 @@ python --version
 # should say : 3.11
 ```
 
-## Step-3: Create a Venv
-
+### A-2: Install dependencies
 
 ```bash
-## go to project dir (assumes repo name is 'data-prep-kit')
-cd data-prep-kit/examples/notebooks/rag
+cd examples/notebooks/rag
 
-make   clean
-make   venv
+pip  install  -r requirements.txt
 ```
 
-This command will 
+If any issues see [troubleshooting tips](#troubleshooting-tips)
 
-- create a python virtual environmnet in `venv` directory.
-- install DPK modules
-- any dependencies listed in `requirements.txt`
+### A-3: Start Jupyter
 
-We only have to run this command once.
+`jupyter lab`
 
-If you make any modifications to   `requirements.txt`  or DPK modules are updated, run this step again.
+This will usually open a browser window/tab.  We will use this to run the notebooks
 
-## Step-4: Test the created venv
+
+## Option B: Python virtual env
+
+### B-1: Have python version 3.11
 
 ```bash
-## go to project dir (assumes repo name is 'data-prep-kit')
-cd data-prep-kit/examples/notebooks/rag
-
-# activate env
-source   venv/bin/activate
-
 ## Check python version
 python --version
 # should say : 3.11
 ```
 
-To deactivate
+### B-2: Create a venv
 
-`deactivate`
+```bash
+cd examples/notebooks/rag
+
+
+python -m venv venv
+
+## activate venv
+source ./venv/bin/activate
+
+## Install requirements
+pip install -r requirements.txt
+```
+
+If any issues see [troubleshooting tips](#troubleshooting-tips)
+
+
+### B-3: Launch Jupyter
+
+`./venv/bin/jupyter lab`
+
+This will usually open a browser window/tab.  We will use this to run the notebooks
+
+**Note:**: Make sure to run `./venv/bin/jupyter lab`, so it can load installed dependencies correctly.
+
+## Troubleshooting Tips
+
+### fasttext compile issue with GCC/G++ compiler version 13
+
+`pip install` may fail because one of the python dependencies, `fasttext==0.9.2` compiles with GCC/G++ version 11, not version 13.
+
+Here is how to fix this error:
+
+```bash
+## These instructions are for Ubuntu 22.04 and later
+
+sudo apt update
+
+## install GCC/G++ compilers version 11 
+sudo apt install -y gcc-11  g++-11
+
+## Verify installation
+gcc-11  --version
+g++-11  --version
+# should say 11
+
+## Set the compiler before doing pip install
+CC=gcc-11  pip install -r requirements.txt 
+```
