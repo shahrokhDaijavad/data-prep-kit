@@ -6,6 +6,18 @@ it is processing at the rate of 1 page / sec.  So for 3 documents with 300 pages
 
 Here is how I am profiling it
 
+## Env Setup
+
+```bash
+conda create -n dpk-perf-1 -y python=3.11
+
+# activate the new conda environment
+conda activate dpk-perf-1
+
+pip install --upgrade  -r requirements.txt
+
+```
+
 ## Profiling Pure Python Code
 
 First simple code with pdf2parquet transform : [test_pdf2pq_py.py](test_pdf2pq_py.py)
@@ -20,11 +32,14 @@ To generate **speedscope** format
 
 `py-spy record -o test_pdf2pq_py.speed -f speedscope -- python test_pdf2pq_py.py`
 
-Open the file at : https://www.speedscope.app/
+Open the .speed file at : https://www.speedscope.app/
 
 ## Profiling RAY code
 
 code: [test_pdf2pq_ray.py](test_pdf2pq_ray.py)
+
+`py-spy record -o test_pdf2pq_ray.speed -f speedscope -- python test_pdf2pq_ray.py`
+
 
 Experimenting with the collofing configurations
 

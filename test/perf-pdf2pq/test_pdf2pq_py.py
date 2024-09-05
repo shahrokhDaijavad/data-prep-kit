@@ -9,8 +9,8 @@ from pdf2parquet_transform_python import Pdf2ParquetPythonTransformConfiguration
 
 
 # create parameters
-input_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), "input_data", "walmart-reports-1"))
-output_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), "output2"))
+input_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), "input"))
+output_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), "output"))
 
 shutil.rmtree(output_folder, ignore_errors=True)
 shutil.os.makedirs(output_folder, exist_ok=True)
