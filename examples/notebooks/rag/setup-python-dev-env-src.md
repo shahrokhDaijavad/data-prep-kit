@@ -1,14 +1,18 @@
-# Setup a Local Python Dev Environment
+# Setup a Local Python SOURCE Dev Environment
 
-This is for developing with src code version.
+This is for developing with src version.  **Recommended for DPK developers**
 
-## Option A (Recommended): Anaconda Python environment
+## Step-1: Install Anaconda Python environment
+
+(You can skip this step if you have already have python 3.10 or 3.11)
 
 You can install Anaconda by following the [guide here](https://www.anaconda.com/download/).
 
 We will create an environment for this workshop with all the required libraries installed.
 
-### A-1: Setup a conda env
+## Step-2: Setup a conda env
+
+(You can skip this step if you have python 3.10 or 3.11 already installed)
 
 ```bash
 conda create -n data-prep-kit-1-src-dev -y python=3.11
@@ -22,7 +26,7 @@ python --version
 # should say : 3.11
 ```
 
-### A-2: Install dependencies
+## Step-3: Install System Dependencies
 
 If you are using a linux system, install gcc using the below commands:
 
@@ -31,40 +35,23 @@ conda install gcc_linux-64
 conda install gxx_linux-64
 ```
 
-Now we will install dependencies from source
+
+## Step-4: Create a venv
+
+Two options
+
+### 4A - Using Make (Recommended)
 
 ```bash
 cd examples/notebooks/rag
 
-bash ./prepare_env.sh
+make clean  venv
 ```
 
-If any issues see [troubleshooting tips](#troubleshooting-tips)
-
-### A-3: Start Jupyter
-
-`jupyter lab`
-
-This will usually open a browser window/tab.  We will use this to run the notebooks
-
-
-## Option B: Python virtual env
-
-### B-1: Have python version 3.11
-
-```bash
-## Check python version
-python --version
-# should say : 3.11
-```
-
-### B-2: Create a venv
-
-
+### 4B - Manually
 
 ```bash
 cd examples/notebooks/rag
-
 
 python -m venv venv
 
@@ -73,13 +60,13 @@ source ./venv/bin/activate
 
 
 ## Install requirements
-bash ./prepare_dev_env.sh
+bash ./prepare_env.sh
 ```
 
 If any issues see [troubleshooting tips](#troubleshooting-tips)
 
 
-### B-3: Launch Jupyter
+## Step-5: Launch Jupyter
 
 `./venv/bin/jupyter lab`
 

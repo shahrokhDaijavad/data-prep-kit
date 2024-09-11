@@ -10,5 +10,5 @@ venv:: .defaults.ray-lib-src-venv
 	. ./venv/bin/activate && bash ./prepare_env.sh
 
 jupyter::
-	@# Help: Activate the venv and start the example notebook  
+	@# Help: Activate the venv and start jupyter
 	. ./venv/bin/activate && ./venv/bin/jupyter lab

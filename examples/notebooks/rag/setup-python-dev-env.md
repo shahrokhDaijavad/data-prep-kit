@@ -67,7 +67,7 @@ python -m venv venv
 source ./venv/bin/activate
 
 ## Install requirements
-pip install -r requirements.txt
+pip install -r requirements-stable.txt
 ```
 
 If any issues see [troubleshooting tips](#troubleshooting-tips)
@@ -103,5 +103,5 @@ g++-11  --version
 # should say 11
 
 ## Set the compiler before doing pip install
-CC=gcc-11  pip install -r requirements.txt 
+CC=gcc-11  pip install -r requirements-stable.txt 
 ```
