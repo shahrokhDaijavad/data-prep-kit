@@ -14,7 +14,10 @@ cd data-prep-kit
 
 ## Step-1: Setup Python Environment
 
+For working with released versions of DPK use this : 
 [setup-python-dev-env.md](./setup-python-dev-env.md)
+
+For developing with with the lastest source : [setup-python-dev-env-src.md](setup-python-dev-env-src.md)
 
 Make sure Jupyter is running after this step.  We will use this Jupyter instance to run the notebooks in next steps.
 

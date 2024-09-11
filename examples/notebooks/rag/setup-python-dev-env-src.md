@@ -1,27 +1,21 @@
 # Setup a Local Python Dev Environment
 
-We can use 
-
-- Option-A: Use Anaconda environment
-- Option-B: Use python virtual env
-
-Just follow one.  (A) is recommended!
+This is for developing with src code version.
 
 ## Option A (Recommended): Anaconda Python environment
 
 You can install Anaconda by following the [guide here](https://www.anaconda.com/download/).
-
 
 We will create an environment for this workshop with all the required libraries installed.
 
 ### A-1: Setup a conda env
 
 ```bash
-conda create -n data-prep-kit-1 -y python=3.11
+conda create -n data-prep-kit-1-src-dev -y python=3.11
 
 # activate the new conda environment
-conda activate data-prep-kit-1
-# make sure env is swithced to data-prep-kit-1
+conda activate data-prep-kit-1-src-dev
+# make sure env is swithced to data-prep-kit-1-dev
 
 ## Check python version
 python --version
@@ -30,10 +24,19 @@ python --version
 
 ### A-2: Install dependencies
 
+If you are using a linux system, install gcc using the below commands:
+
+```bash
+conda install gcc_linux-64
+conda install gxx_linux-64
+```
+
+Now we will install dependencies from source
+
 ```bash
 cd examples/notebooks/rag
 
-pip  install  -r requirements-stable.txt
+bash ./prepare_env.sh
 ```
 
 If any issues see [troubleshooting tips](#troubleshooting-tips)
@@ -57,6 +60,8 @@ python --version
 
 ### B-2: Create a venv
 
+
+
 ```bash
 cd examples/notebooks/rag
 
@@ -66,8 +71,9 @@ python -m venv venv
 ## activate venv
 source ./venv/bin/activate
 
+
 ## Install requirements
-pip install -r requirements.txt
+bash ./prepare_dev_env.sh
 ```
 
 If any issues see [troubleshooting tips](#troubleshooting-tips)
