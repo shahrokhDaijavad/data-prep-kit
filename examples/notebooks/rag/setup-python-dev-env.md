@@ -17,7 +17,7 @@ We will create an environment for this workshop with all the required libraries 
 ### A-1: Setup a conda env
 
 ```bash
-conda create -n data-prep-kit-1 -y python=3.11
+conda create -n data-prep-kit-1 -y python=3.12
 ```
 
 activate the new conda environment
