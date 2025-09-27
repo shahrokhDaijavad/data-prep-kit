@@ -1,0 +1,7 @@
+kubectl get rayjobs -o yaml | kubectl delete -f -
+kubectl get pipelinerun -o yaml | kubectl delete -f - 
+kubectl get pipeline -o yaml | kubectl delete -f - 
+kubectl get task -o yaml | kubectl delete -f -
+for x in task-*; do kubectl apply -f $x; done
+for x in pipeline-*; do kubectl apply -f $x; done
+

@@ -1,5 +1,6 @@
 # Specify user prefix (UP) and run prefix (RP) before applying the pipeline run
 # UP=MT RP=`date +"%m%d%H"` envsubst < run-gwclassification.yaml | kubectl apply -f -
+# UP=SD RP=`date +"%m%d%H"` envsubst < run-gwclassification-fromdedup.yaml | oc apply -f -
 
 apiVersion: tekton.dev/v1
 kind: PipelineRun
@@ -14,7 +15,7 @@ spec:
       - name: S3_BUCKET_PATH
         value: "bucket-wikimedia-1" 
       - name: EDEDUP_INPUT
-        value: "U_$UP/R_$RP/docling_md"
+        value: "take6_md"
       - name: EDEDUP_OUTPUT
         value: "U_$UP/R_$RP/ededup"
       - name: GW_MATH_INPUT
